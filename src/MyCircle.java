@@ -23,6 +23,6 @@ public class MyCircle extends MyOval {
 
     public void draw(GraphicsContext gc){
         gc.setFill(this.getColor());
-        gc.fillOval(this.getX()-this.getRadius()/2, this.getY()-this.getRadius()/2, this.getRadius(), this.getRadius());
+        gc.fillOval(getX()-getRadius()/2, getY()-getRadius()/2, getRadius(), getRadius());
     }
 }

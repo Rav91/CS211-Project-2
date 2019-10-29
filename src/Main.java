@@ -34,7 +34,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("Hello World");
         Group root = new Group();
-        Canvas canvas = new Canvas(500, 250);
+        Canvas canvas = new Canvas(500, 500);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         StackPane pane = new StackPane();
@@ -48,9 +48,14 @@ public class Main extends Application {
         MyColor lightGreen = MyColor.LightGreen;
         MyColor beige = MyColor.Beige;
 
-        MyCircle circle = new MyCircle(canvas.getWidth()/2, canvas.getHeight()/2, 100);
-        circle.setColor(lavender.getColor());
-        circle.draw(gc);
+//        MyCircle circle = new MyCircle(canvas.getWidth()/2, canvas.getHeight()/2, 500);
+//        circle.setColor(lavender.getColor());
+//        circle.draw(gc);
+
+        MyPolygon poly = new MyPolygon(canvas.getWidth()/2, canvas.getHeight()/2, 5, 250);
+        poly.setColor(lightGreen.getColor());
+        poly.setPolygonColor(lightBlue.getColor());
+        poly.draw(gc);
 
 //        MyOval outer = new MyOval(canvas.getWidth()/2, canvas.getHeight()/2, canvas.getHeight()/2, canvas.getWidth()/2);
 //        outer.setColor(beige.getColor());
