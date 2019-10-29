@@ -48,25 +48,29 @@ public class Main extends Application {
         MyColor lightGreen = MyColor.LightGreen;
         MyColor beige = MyColor.Beige;
 
-        MyOval outer = new MyOval(canvas.getWidth()/2, canvas.getHeight()/2, canvas.getHeight()/2, canvas.getWidth()/2);
-        outer.setColor(beige.getColor());
-        outer.setOvalColor(lightGreen.getColor());
-        outer.draw(gc);
+        MyCircle circle = new MyCircle(canvas.getWidth()/2, canvas.getHeight()/2, 100);
+        circle.setColor(lavender.getColor());
+        circle.draw(gc);
 
-        MyOval middle = new MyOval(outer.getX(), outer.getY(), outer.getHeight()/Math.sqrt(2), outer.getWidth()/Math.sqrt(2));
-        middle.setColor(brown.getColor());
-        middle.setOvalColor(lightBlue.getColor());
-        middle.draw(gc);
-
-        MyOval inner = new MyOval(outer.getX(), outer.getY(), middle.getHeight()/Math.sqrt(2), middle.getWidth()/Math.sqrt(2));
-        inner.setColor(yellow.getColor());
-        inner.setOvalColor(lavender.getColor());
-        inner.draw(gc);
-
-        MyLine l = new MyLine(0, 0, canvas.getWidth(), canvas.getHeight());
-        l.setColor(black.getColor());
-        System.out.println(l);
-        l.draw(gc);
+//        MyOval outer = new MyOval(canvas.getWidth()/2, canvas.getHeight()/2, canvas.getHeight()/2, canvas.getWidth()/2);
+//        outer.setColor(beige.getColor());
+//        outer.setOvalColor(lightGreen.getColor());
+//        outer.draw(gc);
+//
+//        MyOval middle = new MyOval(outer.getX(), outer.getY(), outer.getHeight()/Math.sqrt(2), outer.getWidth()/Math.sqrt(2));
+//        middle.setColor(brown.getColor());
+//        middle.setOvalColor(lightBlue.getColor());
+//        middle.draw(gc);
+//
+//        MyOval inner = new MyOval(outer.getX(), outer.getY(), middle.getHeight()/Math.sqrt(2), middle.getWidth()/Math.sqrt(2));
+//        inner.setColor(yellow.getColor());
+//        inner.setOvalColor(lavender.getColor());
+//        inner.draw(gc);
+//
+//        MyLine l = new MyLine(0, 0, canvas.getWidth(), canvas.getHeight());
+//        l.setColor(black.getColor());
+//        System.out.println(l);
+//        l.draw(gc);
 
         root.getChildren().add(canvas);
         primaryStage.setScene(new Scene(root));
