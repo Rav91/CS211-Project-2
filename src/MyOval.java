@@ -30,10 +30,18 @@ public class MyOval extends MyShape {
         this.width = width;
     }
 
+    double getPerimeter(){
+        return  2*Math.PI*Math.sqrt(0.5*(getWidth()*getHeight()+getHeight()*getWidth()));
+    }
+
+    double getArea(){
+        return Math.PI*getWidth()*getHeight();
+    }
+
     public String toString(){
         return "MyOval axes: " + getHeight() + ", " + getWidth()
-                + "\nMyOval perimeter: " + 2*Math.PI*Math.sqrt(0.5*(getWidth()*getHeight()+getHeight()*getWidth()))
-                + "\nMyOval area: " + Math.PI*getWidth()*getHeight();
+                + "\nMyOval perimeter: " + this.getPerimeter()
+                + "\nMyOval area: " + this.getArea();
     }
 
     public void draw(GraphicsContext gc) {
