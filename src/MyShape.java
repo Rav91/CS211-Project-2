@@ -2,7 +2,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public abstract class MyShape {
+public abstract class MyShape implements MyShapePositionInterface{
     private double x;
     private double y;
     private Color color;
@@ -16,7 +16,7 @@ public abstract class MyShape {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
