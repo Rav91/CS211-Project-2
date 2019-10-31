@@ -69,7 +69,7 @@ public class MyOval extends MyShape {
     }
 
     public double distanceTo(double x, double y){
-        return Math.ceil(Math.sqrt((Math.pow((x-getX()),2))+(Math.pow((y-getY()),2))));
+        return Math.sqrt((Math.pow((x-getX()),2))+(Math.pow((y-getY()),2)));
     }
 
     public void getBoundingBox(GraphicsContext g) {

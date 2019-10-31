@@ -10,12 +10,13 @@ import javafx.stage.Stage;
 public class Main extends Application {
     enum MyColor{
         Black(0, 0, 0),
+        Thistle(225, 190, 231),
         Lavender(150, 123, 182),
         Yellow(255, 255, 0),
         LightBlue(135, 206, 250),
         Brown(165, 42, 42),
         LightGreen(124, 252, 0),
-        Beige(245, 245, 220);
+        Pink(255, 20, 93);
 
         private Color color;
 
@@ -46,36 +47,35 @@ public class Main extends Application {
         MyColor lightBlue = MyColor.LightBlue;
         MyColor brown = MyColor.Brown;
         MyColor lightGreen = MyColor.LightGreen;
-        MyColor beige = MyColor.Beige;
+        MyColor pink = MyColor.Pink;
+        MyColor thistle = MyColor.Thistle;
 
-//        MyCircle circle = new MyCircle(canvas.getWidth()/2, canvas.getHeight()/2, 500);
-//        circle.setColor(lavender.getColor());
-//        circle.draw(gc);
+        MyPolygon outer = new MyPolygon(canvas.getWidth()/2, canvas.getHeight()/2, 5, canvas.getWidth()/2);
+        outer.setColor(pink.getColor());
+        outer.setPolygonColor(lightGreen.getColor());
+        outer.draw(gc);
 
-        MyPolygon poly = new MyPolygon(canvas.getWidth()/2, canvas.getHeight()/2, 5, 250);
-        poly.setColor(lightGreen.getColor());
-        poly.setPolygonColor(lightBlue.getColor());
-        poly.draw(gc);
+        MyPolygon middle = new MyPolygon(outer.getX(), outer.getY(), 5, outer.getRadius()/Math.sqrt(1.6));
+        middle.setColor(brown.getColor());
+        middle.setPolygonColor(lightBlue.getColor());
+        middle.draw(gc);
 
-//        MyOval outer = new MyOval(canvas.getWidth()/2, canvas.getHeight()/2, canvas.getHeight()/2, canvas.getWidth()/2);
-//        outer.setColor(beige.getColor());
-//        outer.setOvalColor(lightGreen.getColor());
-//        outer.draw(gc);
-//
-//        MyOval middle = new MyOval(outer.getX(), outer.getY(), outer.getHeight()/Math.sqrt(2), outer.getWidth()/Math.sqrt(2));
-//        middle.setColor(brown.getColor());
-//        middle.setOvalColor(lightBlue.getColor());
-//        middle.draw(gc);
-//
-//        MyOval inner = new MyOval(outer.getX(), outer.getY(), middle.getHeight()/Math.sqrt(2), middle.getWidth()/Math.sqrt(2));
-//        inner.setColor(yellow.getColor());
-//        inner.setOvalColor(lavender.getColor());
-//        inner.draw(gc);
-//
-//        MyLine l = new MyLine(0, 0, canvas.getWidth(), canvas.getHeight());
-//        l.setColor(black.getColor());
-//        System.out.println(l);
-//        l.draw(gc);
+        MyPolygon inner = new MyPolygon(outer.getX(), outer.getY(), 5, middle.getRadius()/Math.sqrt(2));
+        inner.setColor(yellow.getColor());
+        inner.setPolygonColor(lavender.getColor());
+        inner.draw(gc);
+
+        MyCircle circle = new MyCircle(canvas.getWidth()/2, canvas.getHeight()/2, inner.getRadius()*Math.sqrt(2.5));
+        circle.setColor(thistle.getColor());
+        circle.draw(gc);
+
+        MyLine l1 = new MyLine(0, 0, canvas.getWidth(), canvas.getHeight());
+        l1.setColor(black.getColor());
+        l1.draw(gc);
+
+        MyLine l2 = new MyLine(canvas.getWidth(), 0, 0, canvas.getHeight());
+        l2.setColor(black.getColor());
+        l2.draw(gc);
 
         root.getChildren().add(canvas);
         primaryStage.setScene(new Scene(root));

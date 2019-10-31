@@ -52,4 +52,33 @@ public class MyPolygon extends MyShape {
     public void setRadius(double radius) {
         this.radius = radius;
     }
+
+    public String getPoint(){
+        return "("+ getX() + ","+ getY() +")";
+    }
+
+    public void moveTo(double dx, double dy) {
+        setX(getX()+dx);
+        setY(getY()+dy);
+    }
+
+    public double distanceTo(double x, double y){
+        return Math.sqrt((Math.pow((x-getX()),2))+(Math.pow((y-getY()),2)));
+    }
+
+    public void getBoundingBox(GraphicsContext g) {
+        System.out.println("The coordinates of the bounding box are (" + getX() + "," + getY() + "), (" + (getX()+radius*2)
+                + "," + getY() + "), (" + getX() + "," + (getY()-radius*2) + "), (" + (getX()+radius*2) + "," + (getX()-radius*2) + ").");
+        g.setFill(Color.BLUE);
+        g.fillRect(getX(), getY(), radius*2, radius*2);
+    }
+
+    public boolean doOverlap(MyLine line, MyCircle circle, MyPolygon polygon, MyOval oval, MyRectangle rectangle){
+        if(line.getX() == this.getX() || circle.getX() == this.getX() || oval.getX() == this.getX() || rectangle.getX() == this.getX() ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
